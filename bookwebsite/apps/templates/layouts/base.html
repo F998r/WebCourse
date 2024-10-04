@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+    <head>
+        <title>{%block title%}  {% endblock %}</title>
+        <meta name="keywords" content="recent , Books , Learning , library">
+        <meta name="author" content="author name">
+        <meta name="description" content="Book Website">
+        <mate charset="utf-8">
+        <link href="{% static 'media/qu-icon.jpeg' %}" rel="icon">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    {% block stylesheets %} {% endblock stylesheets%}
+    <body>
+
+        {% include "includes/header.html"%}
+
+        {% block content%} {% endblock %}
+        
+        {% include "includes/footer.html"%}
+    </body>
+</html>

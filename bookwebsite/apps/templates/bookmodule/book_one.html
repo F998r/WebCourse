@@ -1,0 +1,28 @@
+{% extends "layouts/base.html"%}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      {%block title %}Show Book One {% endblock %}
+        <meta name="keywords" content="Books, recent, Learning, library">
+        <meta name="description" content="Books website">
+        <meta name="author" content="author name">
+        <link href="{% static 'media/qu-icon.jpeg' %}" rel="icon">
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+      {% block content %}
+      <a href="{% url 'list_books' %}">Go Back</a>
+      <h1>Details of Book 1</h1>
+      <h2>Internet & World Wide Web How to Program</h2>
+      <h2>Authors: Paul Deitel, Harvey Deitel, Abbey Deitel</h2>
+      <p><strong>Internet & World Wide Web How to Program, 5/e</strong>
+      provides a clear, simple, engaging and entertaining introduction to Internet
+      and web programming. It’s appropriate for both introductory and
+      intermediate-level client-side and server-side programming courses.</p>
+      
+      <img src="{% static 'media/book1.jpeg' %}" alt="Book1 img" width="200" hight="200">
+      {% endblock %}
+    </body>
+</html>

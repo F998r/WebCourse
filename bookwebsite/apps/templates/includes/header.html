@@ -1,0 +1,7 @@
+{% load static %}
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<div class="topnav">
+    <a href="{% url 'index' %}" class="{% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+    <a href="{% url 'list_books' %} " class="{% if request.resolver_match.url_name == 'list_books' %}active{% endif %}">List of Books</a>
+    <a href="{% url 'aboutus' %}" class="{% if request.resolver_match.url_name == 'aboutus' %}active{% endif %}" >About Us</a>
+</div>

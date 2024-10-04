@@ -1,0 +1,25 @@
+{% extends "layouts/base.html"%}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      {%block title %}Show Book Three {% endblock %}
+        <meta name="keywords" content="Books, recent, Learning, library">
+        <meta name="description" content="Books website">
+        <meta name="author" content="author name">
+        <link href="{% static 'media/qu-icon.jpeg' %}" rel="icon">
+        <meta charset="utf-8">
+    </head>
+    
+    <body>
+      {% block content %}
+      <a href="{% url 'list_books' %}">Go Back</a>
+      <h1>Details of Book 3</h1>
+      <h2>Images in Anothor Folder</h2>
+      <h2>Authors:  Paul Deitel, Harvey Deitel </h2>
+
+      
+      <img src="{% static 'media/book3.jpeg' %}" alt="Book3 img" width="200" hight="200">
+      {% endblock %}
+    </body>
+</html>

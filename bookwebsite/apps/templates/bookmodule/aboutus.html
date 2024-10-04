@@ -1,0 +1,23 @@
+{% extends "layouts/base.html"%}
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%block title %} About Us{% endblock %}
+        <meta name="keywords" content="Books, recent, Learning, library">
+        <meta name="description" content="Books website">
+        <meta name="author" content="author name">
+        <link href="{% static 'media/qu-icon.jpeg' %}" rel="icon">
+        <meta charset="utf-8">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    
+    <body>
+        
+        {% block content %}
+        <h1>About us</h1>
+        <p>students studying web technology course</p>
+        <p>To write to <a href="mailto:email@domain.com">our store</a> click the link and your default email client will open an email message and address it to us.</p>
+        {% endblock %}
+    </body>
+</html>

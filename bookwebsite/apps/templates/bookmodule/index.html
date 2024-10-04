@@ -1,0 +1,30 @@
+{% extends "layouts/base.html"%}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {%block title %} My First Index HTML Page {% endblock %}
+        <meta name="keywords" content="Books, recent, Learning, library">
+        <meta name="description" content="Books website">
+        <meta name="author" content="author name">
+        <link href="{% static 'media/qu-icon.jpeg' %}" rel="icon">
+        <meta charset="utf-8">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    </head>
+    
+    <body>
+
+        {% block content %}
+        <h1 style="color: blue;">This is Heading 1 (Library)</h1>
+        <p style="color: white; background-color: black;">This is Paragraph 1</p>
+        <a href="https://www.w3schools.com/html/default.asp">to learn more about HTML</a>
+        <hr>
+        
+        <h2>This is Heading 2</h2>
+        <p>This is paragraph 2 <br> with new line </p>
+        <hr>
+        {% endblock %}
+    </body>
+</html>
+    
+    
