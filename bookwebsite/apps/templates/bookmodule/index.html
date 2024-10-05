@@ -11,7 +11,12 @@
         <meta charset="utf-8">
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
     </head>
-    
+    <style>
+        a{
+            text-decoration: none;
+        }
+
+    </style>
     <body>
 
         {% block content %}
@@ -22,7 +27,15 @@
         
         <h2>This is Heading 2</h2>
         <p>This is paragraph 2 <br> with new line </p>
-        <hr>
+
+        <hr><hr>
+        <a href="{% url 'qassimUn' %}" target="_blank">Go To my QU</a>
+        <br><br>
+        <a href="{% url 'formatting'%}" target="_blank">Go to Formmating Page</a>
+        <br><br>
+        <a href="{% url 'listing'%}" target="_blank">Go to Listing Page</a>
+        <br><br>
+        <a href="{% url 'tables' %}" target="_blank">Go to Tables Page</a>
         {% endblock %}
     </body>
 </html>

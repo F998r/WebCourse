@@ -28,3 +28,16 @@ def viewbook(request, bookId):
 
 def aboutus(request):
     return render(request,'bookmodule/aboutus.html')
+
+def qu(request):
+    return render(request, "bookmodule/qassimUn.html")
+
+def format(request):
+    return render(request, "bookmodule/formatting.html")
+
+def lists(request):
+    return render(request,"bookmodule/listing.html")
+
+
+def tables(request):
+    return render(request,"bookmodule/table.html")
