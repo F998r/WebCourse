@@ -9,6 +9,7 @@ urlpatterns = [
     path('links', views.qu, name="qassimUn"),
     path('formmating', views.format, name="formatting"),
     path('listing', views.lists, name="listing"),
-    path('tables', views.tables, name="tables")
+    path('tables', views.tables, name="tables"),
+    path('search',views.srch,name="search"),
     # Add other URL patterns here
 ]

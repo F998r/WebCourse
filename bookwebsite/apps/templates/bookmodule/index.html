@@ -11,31 +11,33 @@
         <meta charset="utf-8">
         <link href="{% static 'css/style.css' %}" rel="stylesheet">
     </head>
-    <style>
-        a{
-            text-decoration: none;
-        }
 
-    </style>
+
+
     <body>
 
         {% block content %}
-        <h1 style="color: blue;">This is Heading 1 (Library)</h1>
-        <p style="color: white; background-color: black;">This is Paragraph 1</p>
-        <a href="https://www.w3schools.com/html/default.asp">to learn more about HTML</a>
-        <hr>
+        <h1 style="color: rgb(106, 155, 185);">This is Heading 1 (Library)</h1>
+        <p style="color: white; background-color: rgb(149, 148, 148); padding: 5px;">This is Paragraph 1</p> <br>
+        <a class= "links" href="https://www.w3schools.com/html/default.asp" target="_blank">to learn more about HTML</a>
+        <br>
         
         <h2>This is Heading 2</h2>
         <p>This is paragraph 2 <br> with new line </p>
 
-        <hr><hr>
-        <a href="{% url 'qassimUn' %}" target="_blank">Go To my QU</a>
+
+        <hr><br>
+        <a class= "links " href="{% url 'qassimUn' %}" target="_blank">Go To my QU</a>
         <br><br>
-        <a href="{% url 'formatting'%}" target="_blank">Go to Formmating Page</a>
+        <a class= "links " href="{% url 'formatting'%}" target="_blank">Go to Formmating Page</a>
         <br><br>
-        <a href="{% url 'listing'%}" target="_blank">Go to Listing Page</a>
+        <a class= "links " href="{% url 'listing'%}" target="_blank">Go to Listing Page</a>
         <br><br>
-        <a href="{% url 'tables' %}" target="_blank">Go to Tables Page</a>
+        <a class= "links " href="{% url 'tables' %}" target="_blank">Go to Tables Page</a>
+
+        <br><br>
+        <a class= "links " href="{% url 'search' %}" target="_blank">Go to Search Page</a>
+
         {% endblock %}
     </body>
 </html>

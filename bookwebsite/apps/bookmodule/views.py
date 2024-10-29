@@ -41,3 +41,32 @@ def lists(request):
 
 def tables(request):
     return render(request,"bookmodule/table.html")
+
+def __getBookList():
+    book1 = { 'id': 12344321, 'title': 'Continuous Delivery', 'author': 'J.Humble and D. Farly'}
+    book2 = { 'id': 56788765, 'title': 'Reversing: Secrest of Reverse Engineering', 'author': 'E. Eilam' }
+    book3 = { 'id': 43211234, 'title': 'The Hundred-Page Machine Learning Book', 'author': 'Andriy Burkov'}
+    return [book1 , book2 , book3]
+
+
+def srch(request):
+    if request.method == "POST":
+        key = request.POST.get('keyword').lower()
+        isTitle = request.POST.get('option1')
+        isAuthor = request.POST.get('option2')
+
+        #do filter
+        books= __getBookList()
+        newBooks = []
+        for item in books:
+            contained = False
+            if isTitle and key in item['title'].lower(): 
+                contained = True
+            if not contained and isAuthor and key in item['author'].lower():
+                contained = True
+
+            if contained:
+                newBooks.append(item)
+        return render(request, 'bookmodule/BookList.html', {'books' : newBooks})
+ 
+    return render(request, "bookmodule/search.html")
