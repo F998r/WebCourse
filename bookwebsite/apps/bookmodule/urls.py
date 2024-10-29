@@ -11,5 +11,6 @@ urlpatterns = [
     path('listing', views.lists, name="listing"),
     path('tables', views.tables, name="tables"),
     path('search',views.srch,name="search"),
+    path('simpleQuery' , views.simple_query , name = "simpleQ")
     # Add other URL patterns here
 ]

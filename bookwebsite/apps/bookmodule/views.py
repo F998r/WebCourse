@@ -1,4 +1,5 @@
 from django.shortcuts import render,get_object_or_404
+from .models import Books
 
 
 def index(request):
@@ -70,3 +71,7 @@ def srch(request):
         return render(request, 'bookmodule/BookList.html', {'books' : newBooks})
  
     return render(request, "bookmodule/search.html")
+
+def simple_query(request):
+    mybooks = Books.objects.filter(title__icontains = 'and')
+    return render (request , 'bookmodule/BookList.html', {'books' : mybooks})
