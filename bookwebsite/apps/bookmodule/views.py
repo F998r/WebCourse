@@ -1,5 +1,6 @@
 from django.shortcuts import render,get_object_or_404
-from .models import Books
+from .models import Books,Address , Student
+from django.db.models import Q , Sum ,Count , Min , Max , Avg
 
 
 def index(request):
@@ -73,5 +74,59 @@ def srch(request):
     return render(request, "bookmodule/search.html")
 
 def simple_query(request):
-    mybooks = Books.objects.filter(title__icontains = 'and')
-    return render (request , 'bookmodule/BookList.html', {'books' : mybooks})
+    if request.method == "POST":
+        key = request.POST.get('keyW', '').lower()  # Fetch and convert to lowercase
+        books = Books.objects.all()  # Retrieve all books from the database
+        filtered_books = [] 
+
+        for obj in books:
+           filtered_books= Books.objects.filter(title__icontains = key)
+        
+        return render(request, 'bookmodule/BookList.html', {'books': filtered_books})
+
+    return render(request, "bookmodule/Query.html")
+
+
+def task1(request):
+    obj = Books.objects.filter(Q(price__lte=50))
+    return render(request , "bookmodule/lab8/task1.html",{'obj' : obj})
+
+def task2(request):
+    obj=Books.objects.filter(Q(edition__gt=2) & (Q(title__icontains='qu') | Q(author__icontains='qu')))
+    return render(request , "bookmodule/lab8/task2.html", {'obj' : obj})
+
+def task3(request):
+    obj = Books.objects.filter(Q(edition__lte=2) & (~Q(title__icontains='qu') | ~Q(author__icontains='qu')))
+    return render(request , "bookmodule/lab8/task3.html", {'obj' : obj})
+
+def task4(request):
+    obj = Books.objects.all().order_by('title')
+    return render(request , "bookmodule/lab8/task4.html", {'obj' : obj})
+
+def task5(request):
+    obj=Books.objects.all()
+    count = Books.objects.aggregate(Count('price'))
+    total = Books.objects.aggregate(Sum('price'))
+    average = Books.objects.aggregate(Avg('price'))
+    maximum = Books.objects.aggregate(Max('price'))
+    minimum = Books.objects.aggregate(Min('price'))
+    context = {
+        'count' : count,
+        'total' : total,
+        'average' : average,
+        'maximum' : maximum,
+        'minimum' : minimum
+    }
+    return render(request , "bookmodule/lab8/task5.html" , context)
+
+def task6(request):
+    addObj = Address.objects.all()
+    cities = {} #dictionary
+    for i in addObj:
+        studentCount = Student.objects.filter(address = i).count()
+        cities[i.city] = studentCount
+
+
+
+    return render(request , "bookmodule/lab8/task6.html" , {'cities':cities})
+ 
