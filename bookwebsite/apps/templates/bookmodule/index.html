@@ -50,6 +50,23 @@
         <a class= "links " href="{% url 'task5' %}" target="_blank">Task 5</a>
         <br><br>
         <a class= "links " href="{% url 'task6' %}" target="_blank">Task 6</a>
+        <br><br>
+        <a class= "links " href="{% url 'listbooks' %}" target="_blank">List of Books (CRUD)</a>
+        <br><br>
+        <a class= "links " href="{% url 'addbook' %}" target="_blank">Add Book (CRUD)</a>
+        <br><br>
+        <a class= "links " href="{% url 'updatebook' bID=1%}" target="_blank">Update Book (CRUD)</a>
+        <br><br>
+        <a class= "links " href="{% url 'deletebook' bID=1 %}" target="_blank">Delete Book (CRUD)</a>
+        <br><br>
+        <a class= "links " href="{% url 'listbooks2' %}" target="_blank">List of Books (Django Forms)</a>
+        <br><br>
+        <a class= "links " href="{% url 'addbook2' %}" target="_blank">Add Book (Django Forms)</a>
+        <br><br>
+        <a class= "links " href="{% url 'updatebook2' bID=1%}" target="_blank">Update Book (Django Forms)</a>
+        <br><br>
+        <a class= "links " href="{% url 'deletebook2' bID=1 %}" target="_blank">Delete Book (Django Forms)</a>
+    
 
         {% endblock %}
     </body>
