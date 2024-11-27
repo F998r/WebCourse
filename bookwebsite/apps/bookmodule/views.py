@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404 , redirect
-from .models import Books,Address , Student
+from .models import Books,Address , Student,Student2,Products
 from django.db.models import Q , Sum ,Count , Min , Max , Avg
-from .forms import BookForm
+from .forms import BookForm,studentForm, studentForm2,ProductsForm
 
 
 def index(request):
@@ -216,3 +216,106 @@ def deletebook2(request , bID):
         return redirect('listbooks2')
 
     return render(request , "bookmodule/lab9_part2/deletebook2.html",{'obj':obj})
+
+
+
+def addStudent(request):
+    form = studentForm()
+    if request.method == "POST":
+        form = studentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listStudent')
+        else:
+            form=studentForm(None)
+    return render(request,"bookmodule/lab10/addStudent.html",{'form' : form})
+
+
+def updateStudent(request,sID):
+    obj = Student.objects.get(id = sID)
+    form = studentForm(instance = obj)
+    if request.method == "POST":
+        form = studentForm(request.POST , instance = obj)
+        if form.is_valid():
+            form.save()
+            return redirect('listStudent')
+        else:
+            form=studentForm(instance = obj)
+
+    return render(request,"bookmodule/lab10/updateStudent.html",{'form' : form})
+
+
+def delStudent(request,sID):
+    obj = Student.objects.get(id = sID)
+    form = studentForm(instance = obj) #to display the info of student
+    if request.method == "POST":
+        obj.delete()
+        return redirect('listStudent')
+    return render(request,"bookmodule/lab10/delStudent.html",{'form' : form})
+
+
+def listStudent(request):
+    obj = Student.objects.all()
+    return render(request,"bookmodule/lab10/listStudent.html",{'obj' : obj})
+
+
+
+
+    #------here is functions of many to many address for students
+
+
+def addStudent2(request):
+    form = studentForm2()
+    if request.method == "POST":
+        form = studentForm2(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('listStudent2')
+        else:
+            form=studentForm2(None)
+    return render(request,"bookmodule/lab10/addStudent2.html",{'form' : form})
+
+
+def updateStudent2(request,sID):
+    obj = Student2.objects.get(id = sID)
+    form = studentForm2(instance = obj)
+    if request.method == "POST":
+        form = studentForm2(request.POST , instance = obj)
+        if form.is_valid():
+            form.save()
+            return redirect('listStudent2')
+        else:
+            form=studentForm2(instance = obj)
+
+    return render(request,"bookmodule/lab10/updateStudent2.html",{'form' : form})
+
+
+def delStudent2(request,sID):
+    obj = Student2.objects.get(id = sID)
+    form = studentForm2(instance = obj) #to display the info of student
+    if request.method == "POST":
+        obj.delete()
+        return redirect('listStudent2')
+    return render(request,"bookmodule/lab10/deleteStudent2.html",{'form' : form})
+
+
+def listStudent2(request):
+    obj = Student2.objects.all()
+    return render(request,"bookmodule/lab10/listStudent2.html",{'obj' : obj})
+
+def prod(request):
+    form = ProductsForm()
+    if request.method == 'POST':
+        form = ProductsForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect('prodList')
+        else:
+            form = ProductsForm(None)
+    return render(request , 'bookmodule/lab10/prod.html',{'form' : form})
+
+    
+
+def prodList(request):
+    products = Products.objects.all()
+    return render(request,"bookmodule/lab10/prodList.html",{'products' : products})

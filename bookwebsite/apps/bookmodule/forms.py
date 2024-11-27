@@ -1,5 +1,5 @@
 from django import forms
-from .models import Books
+from .models import Books, Student,Address,Student2,Products
 
 class BookForm(forms.ModelForm):
     class Meta:
@@ -33,3 +33,76 @@ class BookForm(forms.ModelForm):
         min_value=1,
         initial=1
     )
+
+
+class studentForm(forms.ModelForm):
+    class Meta:
+        model=Student
+        fields='__all__'
+
+    name=forms.CharField(
+        label='Student Name',
+        required=True,
+        max_length = 50,
+        widget = forms.TextInput(
+        attrs = {
+        'placeholder' : 'Enter name of student'
+             }
+            )
+     )
+
+    age = forms.IntegerField(
+        required=True,
+        label = "Age",
+        min_value = 7,
+    )
+
+    address = forms.CharField(
+         max_length = 100
+    )
+
+class studentForm2(forms.ModelForm):
+    class Meta:
+        model=Student2
+        fields=[ 'name' , 'age' , 'address2' ]
+
+    name=forms.CharField(
+        label='Student Name',
+        required=True,
+        max_length = 50,
+        widget = forms.TextInput(
+        attrs = {
+            'placeholder' : 'Enter name of student'
+            }
+        )
+    )
+
+    age = forms.IntegerField(
+        required=True,
+        label = "Age",
+        min_value = 10,
+    )
+
+
+    address2 = forms.ModelMultipleChoiceField(
+        label="Address:",
+        queryset=Address.objects.all(),
+        widget=forms.CheckboxSelectMultiple()
+    )
+
+
+class ProductsForm(forms.ModelForm):
+    class Meta:
+        model = Products
+        fields = '__all__'
+    
+    name = forms.CharField(
+        label = 'Name of Product:',
+        max_length = 50
+    )
+
+    desc = forms.CharField(
+        label = 'Description:',
+        max_length=100
+    )
+

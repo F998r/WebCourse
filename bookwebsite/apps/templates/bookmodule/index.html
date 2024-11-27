@@ -38,6 +38,9 @@
         <a class= "links " href="{% url 'search' %}" target="_blank">Go to Search Page</a>
         <br><br>
         <a class= "links " href="{% url 'simpleQ' %}" target="_blank">Go to Simple Query Page</a>
+
+ 
+        <br><br>
         <br><br>
         <a class= "links " href="{% url 'task1' %}" target="_blank">Task 1</a>
         <br><br>
@@ -50,6 +53,9 @@
         <a class= "links " href="{% url 'task5' %}" target="_blank">Task 5</a>
         <br><br>
         <a class= "links " href="{% url 'task6' %}" target="_blank">Task 6</a>
+
+
+        <br><br>
         <br><br>
         <a class= "links " href="{% url 'listbooks' %}" target="_blank">List of Books (CRUD)</a>
         <br><br>
@@ -58,6 +64,9 @@
         <a class= "links " href="{% url 'updatebook' bID=1%}" target="_blank">Update Book (CRUD)</a>
         <br><br>
         <a class= "links " href="{% url 'deletebook' bID=1 %}" target="_blank">Delete Book (CRUD)</a>
+
+
+        <br><br>
         <br><br>
         <a class= "links " href="{% url 'listbooks2' %}" target="_blank">List of Books (Django Forms)</a>
         <br><br>
@@ -66,6 +75,32 @@
         <a class= "links " href="{% url 'updatebook2' bID=1%}" target="_blank">Update Book (Django Forms)</a>
         <br><br>
         <a class= "links " href="{% url 'deletebook2' bID=1 %}" target="_blank">Delete Book (Django Forms)</a>
+
+
+        <br><br>
+        <br><br>
+        <a class= "links " href="{% url 'addStudent' %}" target="_blank">Add Student</a>
+        <br><br>
+        <a class= "links " href="{% url 'updateStudent' sID=1 %}" target="_blank">Update Student</a>
+        <br><br>
+        <a class= "links " href="{% url 'delStudent' sID=1%}" target="_blank">Delete a Student</a>
+        <br><br>
+        <a class= "links " href="{% url 'listStudent' %}" target="_blank">List of All Students</a>
+
+        <br><br>
+        <br><br>
+        <h3>Many to Many</h3>
+        <a class= "links " href="{% url 'addStudent2' %}" target="_blank">Add Student 2 </a>
+        <br><br>
+        <a class= "links " href="{% url 'updateStudent2' sID=1 %}" target="_blank">Update Student 2</a>
+        <br><br>
+        <a class= "links " href="{% url 'delStudent2' sID=1%}" target="_blank">Delete a Student 2</a>
+        <br><br>
+        <a class= "links " href="{% url 'listStudent2' %}" target="_blank">List of All Students 2</a>
+        <br><br> <br><br>
+        <a class = 'links' href="{% url 'products' %}" target="_blank">Upload Files Page</a>
+        <br><br>
+        <a class = 'links' href="{% url 'prodList' %}" target="_blank">Products List</a>
     
 
         {% endblock %}
