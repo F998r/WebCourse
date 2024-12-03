@@ -130,4 +130,5 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'apps/statics/media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+APPEND_SLASH = True
 
